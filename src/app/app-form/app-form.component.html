@@ -1,0 +1,7 @@
+<!-- <p>app-form works!</p>
+<h1>{{moduleId}} - {{applicationId}}</h1> -->
+
+<app-application-one *ngIf="moduleId === 1 && applicationId === 1"></app-application-one>
+<app-application-two *ngIf="moduleId === 1 && applicationId === 2"></app-application-two>
+
+<div *ngIf="!appExist">No such app... <a routerLink="/home">GO BACK</a></div>

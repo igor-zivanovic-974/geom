@@ -1,0 +1,22 @@
+{
+  "APP_NAME": "Geom",
+  "About": "O nama",
+
+  "Home": "Pocetna",
+  "Logged in as": "Prijavljen kao:",
+  "Login": "Prijava",
+  "Logout": "Odjava",
+  "Password": "Lozinka",
+  "Password is required": "Lozinka obavezna",
+  "Username": "Korisnicko ime",
+  "Username is required": "Korisnicko ime obavezno",
+  "Username or password incorrect.": "Korisnicko ime ili lozinka nisu dobri",
+  "Remember me": "Zapamti me",
+  "Version": "Verzija",
+  "nosivost-tla": "Nosivost tla",
+  "sleganje-tla": "Sleganje tla",
+  "klizna-ravan": "Klizna ravan",
+  "potporni-zid": "Potporni zid",
+  "proracun-sipa": "Proracun sipa",
+  "all": "Sve aplikacije"
+}

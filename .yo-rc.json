@@ -1,0 +1,30 @@
+{
+  "generator-ngx-rocket": {
+    "version": "9.2.0",
+    "props": {
+      "location": "path",
+      "strict": false,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "target": ["web"],
+      "pwa": false,
+      "ui": "bootstrap",
+      "auth": true,
+      "lazy": false,
+      "angulartics": true,
+      "languages": ["sr-RS", "en-US"],
+      "analyticsProvider": "ga",
+      "googleAnalyticsAccount": "",
+      "tools": ["prettier", "hads"],
+      "utility": [],
+      "deploy": "none",
+      "appName": "geom",
+      "projectName": "geom",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": []
+    }
+  }
+}

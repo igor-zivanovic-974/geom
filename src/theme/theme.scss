@@ -1,0 +1,15 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+.pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.no-side-margin {
+  margin-left: 0;
+  margin-right: 0;
+}

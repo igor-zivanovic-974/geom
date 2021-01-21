@@ -1,0 +1,245 @@
+<h3>Proracun dozvoljenog opterecenja tla</h3>
+<form [formGroup]="form">
+  <!-- section 1 -->
+  <div class="border p-3">
+    <div class="form-group row">
+      <label for="objectName" class="col-sm-2 col-form-label col-form-label-sm">{{ 'object-name' | translate }}</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="objectName"
+          placeholder="{{ 'object-name' | translate }}"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="note" class="col-sm-2 col-form-label col-form-label-sm">{{ 'note' | translate }}</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="note"
+          placeholder="{{ 'note' | translate }}"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- section 2 -->
+  <div class="row border p-3 my-3 no-side-margin">
+    <div class="col-12 col-lg-4">
+      <label class="">Foundation shape</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          formControlName="foundationShape"
+          name="foundationShape"
+          id="foundationShape1"
+          value="1"
+          checked
+        />
+        <label class="form-check-label" for="exampleRadios1">
+          {{ 'rectangle' | translate }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          formControlName="foundationShape"
+          name="foundationShape"
+          id="foundationShape2"
+          value="2"
+        />
+        <label class="form-check-label" for="exampleRadios2">
+          {{ 'square' | translate }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          formControlName="foundationShape"
+          name="foundationShape"
+          id="foundationShape3"
+          value="3"
+        />
+        <label class="form-check-label" for="exampleRadios2">
+          {{ 'line' | translate }}
+        </label>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 form-inline">
+      <div class="form-group row">
+        <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ 'df' | translate }}</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" formControlName="df" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="b" class="col-sm-2 col-form-label col-form-label-sm">{{ 'b' | translate }}</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" formControlName="b" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="l" class="col-sm-2 col-form-label col-form-label-sm">{{ 'l' | translate }}</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" formControlName="l" />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <button class="btn btn-primary" (click)="openSketch()">{{ 'foundation-sketch' | translate }}</button>
+    </div>
+  </div>
+
+  <!-- section 3 -->
+  <div class="row border p-3 my-3 no-side-margin">
+    <div class="col-12 col-lg-4">
+      <label class="">Foundation under an oblique load</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="oblique" [value]="true" />
+        <label class="form-check-label" for="oblique1">
+          {{ 'yes' | translate }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="oblique" [value]="false" />
+        <label class="form-check-label" for="oblique2">
+          {{ 'no' | translate }}
+        </label>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="form-group row">
+        <label for="horizontalF" class="col-sm-3 col-form-label col-form-label-sm">{{
+          'horizontal-force' | translate
+        }}</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" formControlName="horizontalF" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="verticalF" class="col-sm-3 col-form-label col-form-label-sm">{{
+          'vertical-force' | translate
+        }}</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" formControlName="verticalF" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- section 4 -->
+  <div class="row border p-3 my-3 no-side-margin">
+    <div class="col-12 col-lg-4">
+      <label class="">Calculation according to a two-layer system</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="twoLayer" [value]="true" />
+        <label class="form-check-label" for="twoLayer1">
+          {{ 'yes' | translate }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="twoLayer" [value]="false" />
+        <label class="form-check-label" for="twoLayer2">
+          {{ 'no' | translate }}
+        </label>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="form-group row">
+        <label for="layerHeight" class="col-sm-3 col-form-label col-form-label-sm">{{
+          'layer-height' | translate
+        }}</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control form-control-sm" formControlName="layerHeight" />
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+                    <label for="verticalF" class="col-sm-3 col-form-label col-form-label-sm">{{'vertical-force' | translate}}</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" formControlName="verticalF">
+                    </div>
+                </div> -->
+    </div>
+  </div>
+
+  <!-- section 5 -->
+  <div class="row border p-3 my-3 no-side-margin">
+    <label for="" class="col-8">Podaci o tlu</label>
+    <label for="" class="col-4"></label>
+    <div class="col-12 col-lg-4 form-inline" [ngClass]="{ 'mb-3': (isMobileScreen$ | async) }">
+      <div class="col-12 py-2 border">
+        <label for="" class="col-12 text-left pl-0 mb-2">Sloj 1</label>
+        <div class="form-group row">
+          <label for="fi1" class="col-sm-2 col-form-label col-form-label-sm">&phi;</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="fi1" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="c1" class="col-sm-2 col-form-label col-form-label-sm">{{ 'c' | translate }}</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="c1" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gama1" class="col-sm-2 col-form-label col-form-label-sm">&gamma;</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="gama1" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 form-inline" [ngClass]="{ 'mb-3': (isMobileScreen$ | async) }">
+      <div class="col-12 py-2 border">
+        <label for="" class="col-12 text-left pl-0 mb-2">Sloj 2</label>
+        <div class="form-group row">
+          <label for="fi2" class="col-sm-2 col-form-label col-form-label-sm">&phi;</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="fi2" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="c2" class="col-sm-2 col-form-label col-form-label-sm">{{ 'c' | translate }}</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="c2" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gama2" class="col-sm-2 col-form-label col-form-label-sm">&gamma;</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" formControlName="gama2" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 form-inline">
+      <label for="" class="col-12 text-left pl-0 mb-2"></label>
+      <div class="form-group row">
+        <label for="fi" class="col-sm-2 col-form-label col-form-label-sm">&phi;</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" formControlName="fi" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="c" class="col-sm-2 col-form-label col-form-label-sm">{{ 'c' | translate }}</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" formControlName="c" />
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+                    <label for="l" class="col-sm-2 col-form-label col-form-label-sm">{{'l' | translate}}</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" formControlName="l">
+                    </div>
+                </div> -->
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="calculate()">{{ 'calculate' | translate }}</button>
+</form>
