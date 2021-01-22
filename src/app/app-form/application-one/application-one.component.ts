@@ -40,13 +40,13 @@ export class ApplicationOneComponent implements OnInit {
 
   private createForm() {
     this.form = this.formBuilder.group({
-      objectName: ['', Validators.required],
-      note: ['', Validators.required],
-      foundationShape: ['1', Validators.required],
+      objekat: ['', Validators.required],
+      napomena: ['', Validators.required],
+      Oblik_temelja: ['1', Validators.required],
       df: [0, Validators.required],
       b: [0, Validators.required],
       l: [0, Validators.required],
-      oblique: [false, Validators.required],
+      Gama1: [false, Validators.required],
       horizontalF: [0, Validators.required],
       verticalF: [0, Validators.required],
       twoLayer: [false, Validators.required],
