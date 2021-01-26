@@ -1,1 +1,37 @@
-<p>application-two works!</p>
+<!-- <app-form-elements [components]="components"></app-form-elements>
+<hr> -->
+<app-form-element-input
+  [data]="control1"
+  [type]="'number'"
+  [title]="'test1'"
+  [min]="0"
+  [max]="55"
+  (changedValue)="control1 = $event"
+></app-form-element-input>
+<app-form-element-input
+  [data]="control2"
+  [type]="'text'"
+  [title]="'test2'"
+  [isRequired]="true"
+  [maxLength]="26"
+  (changedValue)="control2 = $event"
+></app-form-element-input>
+<app-form-element-input
+  [data]="control3"
+  [type]="'number'"
+  [title]="'test1'"
+  [isRequired]="false"
+  (changedValue)="control3 = $event"
+></app-form-element-input>
+
+<hr />
+
+<app-form-element-radio [items]="control4" [title]="c4Title" (changedValue)="c4 = $event"></app-form-element-radio>
+
+<hr />
+
+<app-form-element-dropdown
+  [items]="control5"
+  [title]="c5Title"
+  (changedValue)="c5 = $event"
+></app-form-element-dropdown>

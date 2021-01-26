@@ -1,0 +1,8 @@
+<div *ngFor="let c of components">
+  <div [ngSwitch]="c.type">
+    <div *ngSwitchCase="'input'">input - {{ c.value }}</div>
+    <div *ngSwitchCase="'dropdown'">dropdown - {{ c.value }}</div>
+    <div *ngSwitchCase="'radio'">radio - {{ c.value }}</div>
+    <div *ngSwitchDefault>Default</div>
+  </div>
+</div>

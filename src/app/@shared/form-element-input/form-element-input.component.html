@@ -1,0 +1,79 @@
+<form #f="ngForm" novalidate>
+  <div *ngIf="type === 'text'; else displayNumber">
+    <div class="form-group row">
+      <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ title | translate }}</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          name="df"
+          [(ngModel)]="data"
+          #df="ngModel"
+          (ngModelChange)="onChange()"
+          [maxLength]="maxLength"
+          onfocus="this.select();"
+          [ngClass]="{ 'border-danger': !(df.valid || df.untouched) }"
+          [required]="isRequired"
+          autocomplete="off"
+        />
+        <small *ngIf="df.errors?.required && (df.dirty || df.touched)" class="text-danger" translate>
+          {{ 'required-field' | translate }}
+        </small>
+        <small [hidden]="!df.errors?.maxLength || df.untouched" class="text-danger" translate>
+          {{ 'max-length' | translate }}
+        </small>
+        <!-- df.valid: {{df.valid}} -->
+      </div>
+    </div>
+  </div>
+
+  <ng-template #displayNumber>
+    <div class="form-group row">
+      <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ title | translate }}</label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          name="df"
+          [(ngModel)]="data"
+          #df="ngModel"
+          (ngModelChange)="onChange()"
+          onfocus="this.select();"
+          [min]="min"
+          [max]="max"
+          [ngClass]="{ 'border-danger': !(df.valid || df.untouched) }"
+          [required]="isRequired"
+          autocomplete="off"
+        />
+        <small *ngIf="df.errors?.required && (df.dirty || df.touched)" class="text-danger" translate>
+          {{ 'required-field' | translate }}
+        </small>
+        <small [hidden]="!df.errors?.min || df.untouched" class="text-danger" translate>
+          {{ 'min' | translate }}
+        </small>
+        <small [hidden]="!df.errors?.max || df.untouched" class="text-danger" translate>
+          {{ 'max' | translate }}
+        </small>
+        <!-- df.valid: {{df.valid}} -->
+        <!-- min: {{min}} / {{df.errors?.min}} max: {{max}} / {{df.errors?.max}} {{(df.dirty || df.touched)}} -->
+      </div>
+    </div>
+  </ng-template>
+</form>
+<!-- {{data}} -->
+
+<!-- <div class="form-group row">
+    <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ 'df' | translate }}</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control form-control-sm" formControlName="df" onfocus="this.select();" [ngClass]="{'border-danger': !(form.controls.df.valid || form.controls.df.untouched)}" />
+      <small *ngIf="form.controls.df.errors?.required && (form.controls.df.dirty || form.controls.df.touched)" class="text-danger" translate>
+        {{ 'required-field' | translate }}
+      </small>
+      <small [hidden]="!form.controls.df.errors?.min || form.controls.df.untouched" class="text-danger" translate>
+        {{ 'min' | translate }}
+      </small>
+      <small [hidden]="!form.controls.df.errors?.max || form.controls.df.untouched" class="text-danger" translate>
+        {{ 'max' | translate }}
+      </small>
+    </div>
+  </div> -->

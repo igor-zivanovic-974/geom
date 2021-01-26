@@ -1,4 +1,5 @@
-<h3>Proracun dozvoljenog opterecenja tla</h3>
+<h3>{{ form.value.opis | translate }}</h3>
+<!--Proracun dozvoljenog opterecenja tla -->
 <form [formGroup]="form">
   <!-- section 1 -->
   <div class="border p-3">
@@ -28,7 +29,7 @@
 
   <!-- section 2 -->
   <div class="row border p-3 my-3 no-side-margin">
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-4" [ngClass]="{ 'my-2': (isMobileScreen$ | async) }">
       <label class="">{{ 'Foundation shape' | translate }}</label>
       <div class="form-check">
         <input class="form-check-input" type="radio" formControlName="tem_int" id="tem_int1" value="1" checked />
@@ -49,27 +50,70 @@
         </label>
       </div>
     </div>
-    <div class="col-12 col-lg-4 form-inline">
+
+    <div class="col-12 col-lg-4" [ngClass]="{ 'my-2': (isMobileScreen$ | async) }">
       <div class="form-group row">
         <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ 'df' | translate }}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" formControlName="df" />
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            formControlName="df"
+            onfocus="this.select();"
+            [ngClass]="{ 'border-danger': !(form.controls.df.valid || form.controls.df.untouched) }"
+          />
+          <small
+            *ngIf="form.controls.df.errors?.required && (form.controls.df.dirty || form.controls.df.touched)"
+            class="text-danger"
+            translate
+          >
+            {{ 'required-field' | translate }}
+          </small>
+          <small [hidden]="!form.controls.df.errors?.min || form.controls.df.untouched" class="text-danger" translate>
+            {{ 'min' | translate }}
+          </small>
+          <small [hidden]="!form.controls.df.errors?.max || form.controls.df.untouched" class="text-danger" translate>
+            {{ 'max' | translate }}
+          </small>
         </div>
       </div>
       <div class="form-group row">
         <label for="dimb" class="col-sm-2 col-form-label col-form-label-sm">{{ 'dimb' | translate }}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" formControlName="dimb" />
+          <input
+            type="number"
+            min=""
+            max=""
+            class="form-control form-control-sm"
+            formControlName="dimb"
+            onfocus="this.select();"
+            [ngClass]="{ 'border-danger': !(form.controls.dimb.valid || form.controls.dimb.untouched) }"
+          />
+          <small [hidden]="form.controls.dimb.valid || form.controls.dimb.untouched" class="text-danger" translate>
+            {{ 'required-field' | translate }}
+          </small>
         </div>
       </div>
       <div class="form-group row">
         <label for="diml" class="col-sm-2 col-form-label col-form-label-sm">{{ 'diml' | translate }}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" formControlName="diml" />
+          <input
+            type="number"
+            min=""
+            max=""
+            class="form-control form-control-sm"
+            formControlName="diml"
+            onfocus="this.select();"
+            [ngClass]="{ 'border-danger': !(form.controls.diml.valid || form.controls.diml.untouched) }"
+          />
+          <small [hidden]="form.controls.diml.valid || form.controls.diml.untouched" class="text-danger" translate>
+            {{ 'required-field' | translate }}
+          </small>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4">
+
+    <div class="col-12 col-lg-4" [ngClass]="{ 'my-2': (isMobileScreen$ | async) }">
       <button class="btn btn-primary" (click)="openSketch()">{{ 'foundation-sketch' | translate }}</button>
     </div>
   </div>
@@ -115,6 +159,17 @@
   <div class="row border p-3 my-3 no-side-margin">
     <div class="col-12 col-lg-4">
       <label class="">{{ 'Calculation according to a two-layer system' | translate }}</label>
+      <!-- <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="ds" formControlName="ds">
+        <label class="custom-control-label" for="ds"></label>
+      </div> -->
+      <!-- <div class="form-group">
+        Disaggregation
+        <label class="switch">
+          <input type="checkbox" formControlName="DISAGGREGATION" (change)="checkFields($event)" />
+          <span class="slider round"></span>
+        </label>
+      </div> -->
       <div class="form-check">
         <input class="form-check-input" type="radio" formControlName="ds" value="D" />
         <label class="form-check-label" for="twoLayer1">
@@ -205,7 +260,8 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="calculate()">{{ 'calculate' | translate }}</button>
+  <button type="submit" class="btn btn-primary" (click)="calculate()">{{ 'calculate' | translate }}</button
+  ><!-- [disabled]="form.invalid"-->
   <button type="submit" class="btn btn-primary" (click)="save()">{{ 'save' | translate }}</button>
-  <button type="submit" class="btn btn-primary" (click)="x()">{{ 'x' | translate }}</button>
+  <button type="submit" class="btn btn-primary" (click)="importFromFile()">{{ 'import-from-file' | translate }}</button>
 </form>

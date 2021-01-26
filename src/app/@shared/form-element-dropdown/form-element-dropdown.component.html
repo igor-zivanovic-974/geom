@@ -1,0 +1,5 @@
+<label>{{ title }}</label>
+<select class="custom-select" (change)="onChange($event)" required>
+  <!-- <option value="">Choose...</option> -->
+  <option *ngFor="let item of items" [value]="item.value" [selected]="item.selected">{{ item.name }}</option>
+</select>

@@ -13,3 +13,15 @@
   margin-left: 0;
   margin-right: 0;
 }
+
+textarea,
+select,
+input,
+button {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@import "./checkbox.scss";

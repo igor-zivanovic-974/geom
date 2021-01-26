@@ -36,43 +36,49 @@ export class ApplicationOneComponent implements OnInit {
   calculate() {
     console.log(this.form.value);
     console.log(JSON.stringify(this.form.value));
+    this.service.calculate(this.form.value).subscribe((img: string) => {});
   }
 
   save() {
     console.log(this.form.value);
     console.log(JSON.stringify(this.form.value));
+    this.service.save(this.form.value).subscribe((img: string) => {});
   }
 
-  x() {
+  importFromFile() {
     console.log(this.form.value);
     console.log(JSON.stringify(this.form.value));
   }
 
+  checkFields(x: string) {
+    // alert(x);
+  }
+
   private createForm() {
     this.form = this.formBuilder.group({
-      opis: [''],
+      opis: ['f1-opis'],
       objekat: ['', Validators.required],
       napomena: ['', Validators.required],
-      tem_int: ['0', Validators.required],
-      df: [0, Validators.required],
-      dimb: [0, Validators.required],
-      diml: [0, Validators.required],
+      tem_int: ['1', Validators.required],
+      df: [0, [Validators.required, Validators.max(12), Validators.min(1)]],
+      dimb: [null, Validators.required],
+      diml: [null, Validators.required],
       ko: ['N', Validators.required],
-      h: [0, Validators.required],
-      v: [0, Validators.required],
+      h: [null, Validators.required],
+      v: [null, Validators.required],
       ds: ['N', Validators.required],
-      tm: [0, Validators.required],
-      fi1: [0, Validators.required],
-      c1: [0, Validators.required],
-      gama1: [0, Validators.required],
-      fi2: [0, Validators.required],
-      c2: [0, Validators.required],
-      gama2: [0, Validators.required],
-      ffi1: [0, Validators.required],
-      fc1: [0, Validators.required],
+      tm: [null, Validators.required],
+      fi1: [null, Validators.required],
+      c1: [null, Validators.required],
+      gama1: [null, Validators.required],
+      fi2: [null, Validators.required],
+      c2: [null, Validators.required],
+      gama2: [null, Validators.required],
+      ffi1: [null, Validators.required],
+      fc1: [null, Validators.required],
       vz2: ['N', Validators.required],
-      ffi2: [0, Validators.required],
-      fc2: [0, Validators.required],
+      ffi2: [null, Validators.required],
+      fc2: [null, Validators.required],
     });
   }
 }
