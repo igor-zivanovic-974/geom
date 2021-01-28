@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormElement } from '../interfaces/formElement';
+import { FormElement } from '../interfaces/formElement.interface';
 
 @Component({
   selector: 'app-form-elements',

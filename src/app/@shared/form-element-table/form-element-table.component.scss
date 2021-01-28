@@ -1,0 +1,39 @@
+@import "../../../theme/theme-variables";
+
+.table-header {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px;
+  background-color: $teal;
+
+  @media only screen and (max-width: 600px) {
+    font-weight: normal;
+    font-size: 0.8rem;
+    line-height: 20px;
+  }
+}
+
+.table-body {
+  font-weight: normal;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px;
+  padding-top: 0.25rem;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.border-inside {
+  box-sizing: border-box;
+  border-left: solid 0.1px #eee;
+}
+
+.alert {
+  padding: 0.25rem 1.25rem !important;
+  margin-bottom: 0rem;
+}
+
+.negative-left-margin {
+  margin-left: -15px;
+}

@@ -9,6 +9,9 @@ import { FormElementsComponent } from './form-elements/form-elements.component';
 import { FormElementInputComponent } from './form-element-input/form-element-input.component';
 import { FormElementRadioComponent } from './form-element-radio/form-element-radio.component';
 import { FormElementDropdownComponent } from './form-element-dropdown/form-element-dropdown.component';
+import { FormElementCheckboxComponent } from './form-element-checkbox/form-element-checkbox.component';
+import { FormElementTableComponent } from './form-element-table/form-element-table.component';
+// import { DigitOnlyDirective } from './directives/digit-only.directive';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, FormsModule, ReactiveFormsModule],
@@ -19,6 +22,8 @@ import { FormElementDropdownComponent } from './form-element-dropdown/form-eleme
     FormElementInputComponent,
     FormElementRadioComponent,
     FormElementDropdownComponent,
+    FormElementCheckboxComponent,
+    FormElementTableComponent,
   ],
   exports: [
     LoaderComponent,
@@ -27,6 +32,9 @@ import { FormElementDropdownComponent } from './form-element-dropdown/form-eleme
     FormElementInputComponent,
     FormElementRadioComponent,
     FormElementDropdownComponent,
+    FormElementCheckboxComponent,
+    FormElementTableComponent,
+    // DigitOnlyDirective
   ],
 })
 export class SharedModule {}

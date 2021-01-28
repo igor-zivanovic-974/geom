@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RadioItem } from '../interfaces/radioItem';
+import { RadioItem } from '../interfaces/radioItem.interface';
 
 @Component({
   selector: 'app-form-element-radio',

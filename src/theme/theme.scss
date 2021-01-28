@@ -3,7 +3,9 @@
  * Framework overrides and customization goes here.
  */
 
-.pointer {
+.pointer,
+a,
+i {
   &:hover {
     cursor: pointer;
   }
@@ -21,6 +23,12 @@ button {
   &:focus {
     outline: none !important;
     box-shadow: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 0.8rem;
   }
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TableRow } from '@app/@shared/interfaces/tableRow.interface';
 
 @Component({
   selector: 'app-application-two',
@@ -31,6 +32,8 @@ export class ApplicationTwoComponent implements OnInit {
   ];
   c5Title = 'neki naziv';
   c5 = 'peric';
+  control6 = true;
+  tableRows: TableRow[] = [{ d: null, gama: null, mv: null }];
 
   constructor() {}
 

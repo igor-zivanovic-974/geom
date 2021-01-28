@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DropdownItem } from '../interfaces/dropdownItem';
+import { DropdownItem } from '../interfaces/dropdownItem.interface';
 
 @Component({
   selector: 'app-form-element-dropdown',
@@ -16,7 +16,6 @@ export class FormElementDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.items.find((x) => x.selected === true).value;
-    console.log(this.data);
   }
 
   onChange(ev: any) {

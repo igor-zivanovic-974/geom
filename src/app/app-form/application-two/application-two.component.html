@@ -35,3 +35,22 @@
   [title]="c5Title"
   (changedValue)="c5 = $event"
 ></app-form-element-dropdown>
+
+<hr />
+
+<app-form-element-checkbox
+  [isChecked]="control6"
+  [title]="'some title'"
+  (changedValue)="control6 = $event"
+></app-form-element-checkbox>
+
+<hr />
+
+<app-form-element-table [tableRows]="tableRows"></app-form-element-table>
+<div class="row" *ngFor="let row of tableRows">
+  <div class="mx-3">{{ row.d }}</div>
+  |
+  <div class="mx-3">{{ row.gama }}</div>
+  |
+  <div class="mx-3">{{ row.mv }}</div>
+</div>
