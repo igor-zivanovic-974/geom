@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DisplayImageComponent } from '@app/@shared/display-image/display-image.component';
+import { DisplayImageComponent } from '@app/@shared/modals/display-image/display-image.component';
 import { GlobalService } from '@app/@shared/services/global.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';

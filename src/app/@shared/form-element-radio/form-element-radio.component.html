@@ -1,30 +1,18 @@
 <label class="">{{ title | translate }}</label>
 
 <div>
-  <div class="form-check" *ngFor="let item of items">
+  <div class="form-check" *ngFor="let item of items" (click)="onChange(item.value)">
     <input
       class="form-check-input"
       type="radio"
-      name="ds"
-      id="ds1"
+      name="{{ title }}"
+      id="{{ name }}"
+      name="{{ name }}"
       [value]="item.value"
       [checked]="item.checked"
-      (click)="onChange(item.value)"
     />
-    <label class="form-check-label" for="ds1">
+    <label class="form-check-label" for="{{ title }}">
       {{ item.name | translate }}
     </label>
   </div>
-  <!-- <div class="form-check">
-    <input class="form-check-input" type="radio" name="ds" id="ds1" [value]="items[0].value" [checked]="items[0].checked" (click)="onChange(items[0].value)" />
-    <label class="form-check-label" for="ds1">
-        {{ items[0].name | translate }}
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="ds" id="ds2" [value]="items[1].value" [checked]="items[1].checked" (click)="onChange(items[1].value)" />
-    <label class="form-check-label" for="ds2">
-        {{ items[1].name | translate }}
-    </label>
-</div> -->
 </div>

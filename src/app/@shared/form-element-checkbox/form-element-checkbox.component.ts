@@ -8,8 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FormElementCheckboxComponent implements OnInit {
   @Input() isChecked: boolean;
   @Input() title: string;
-  @Output() changedValue: EventEmitter<boolean> = new EventEmitter<boolean>();
-  // data: boolean;
+  @Input() name: string;
+  // @Output() changedValue: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() changedValue: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
@@ -17,6 +18,7 @@ export class FormElementCheckboxComponent implements OnInit {
 
   onChange() {
     this.isChecked = !this.isChecked;
-    this.changedValue.emit(this.isChecked);
+    const val = this.isChecked === true ? 'D' : 'N';
+    this.changedValue.emit(val); // this.isChecked
   }
 }

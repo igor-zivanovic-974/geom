@@ -1,12 +1,12 @@
 <div class="container">
   <div class="d-flex flex-row mb-2 negative-left-margin">
-    <div class="">
+    <div>
       <button class="btn btn-sm btn-outline-secondary fixed-height" (click)="addTableRow()">
         <i class="fa fa-plus"></i> <span *ngIf="!(isMobileScreen$ | async)"> {{ 'Add row' | translate }}</span>
       </button>
     </div>
-    <div class="">
-      <div class="alert alert-danger ml-3" role="alert" *ngIf="notStringErr">{{ notStringErr }}!</div>
+    <div>
+      <div class="alert alert-danger ml-3" role="alert" *ngIf="notStringErr">{{ notStringErr | translate }}!</div>
     </div>
   </div>
   <div class="row table-header">
@@ -14,8 +14,9 @@
     <div class="col-3 border-inside m-0">{{ 'Debljina' | translate }} (m)</div>
     <div class="col-3 border-inside m-0">{{ 'Gama' | translate }} (kN/m2)</div>
     <div class="col-3 border-inside m-0">{{ 'Mv' | translate }} (kN/m2)</div>
-    <div class="col border-inside m-0 px-0"><i class="fa fa-times"></i></div>
+    <div class="col border-inside m-0 px-0">{{ 'Remove' | translate }}</div>
   </div>
+  <!-- </div> -->
   <div class="row table-body" *ngFor="let row of tableRows; let i = index">
     <div class="col-1">{{ i + 1 }}</div>
     <div
@@ -46,10 +47,14 @@
     >
       {{ row.mv }}
     </div>
-    <div class="border-inside" [ngClass]="{ 'col-2': !(isMobileScreen$ | async), col: (isMobileScreen$ | async) }">
+    <div
+      class="border-inside"
+      [ngClass]="{ 'col-2': !(isMobileScreen$ | async), col: (isMobileScreen$ | async) }"
+      (click)="invokeDelete(i)"
+    >
       <button class="btn btn-sm btn-link-danger px-0">
-        <i class="fa fa-times text-danger" (click)="removeTableRow(i)"></i>
-        <span *ngIf="!(isMobileScreen$ | async)">{{ 'Remove row' | translate }}</span>
+        <i class="fa fa-times text-danger"></i>
+        <!-- <span *ngIf="!(isMobileScreen$ | async)">{{ 'Remove' | translate }}</span> -->
       </button>
     </div>
   </div>

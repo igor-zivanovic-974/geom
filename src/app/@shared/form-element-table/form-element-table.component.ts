@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { TableRow } from '../interfaces/tableRow.interface';
+import { DeleteConfirmationComponent } from '../modals/delete-confirmation/delete-confirmation.component';
 import { GlobalService } from '../services/global.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class FormElementTableComponent implements OnInit {
   notStringErr: string;
   isMobileScreen$: Observable<boolean>;
 
-  constructor(private globalService: GlobalService) {
+  constructor(private globalService: GlobalService, private modal: NgbModal) {
     this.isMobileScreen$ = this.globalService.isMobileScreen$;
   }
 
@@ -23,6 +25,17 @@ export class FormElementTableComponent implements OnInit {
   addTableRow() {
     this.tableRows.push({ d: null, gama: null, mv: null });
     this.onChange();
+  }
+
+  invokeDelete(index: number) {
+    const modalRef = this.modal.open(DeleteConfirmationComponent, { size: 'lg' });
+    modalRef.componentInstance.question = 'delete-question';
+    modalRef.componentInstance.title = 'delete-title';
+    modalRef.componentInstance.response.subscribe((res: boolean) => {
+      if (res) {
+        this.removeTableRow(index);
+      }
+    });
   }
 
   removeTableRow(index: number) {
@@ -38,7 +51,7 @@ export class FormElementTableComponent implements OnInit {
   onChangeContent(row: TableRow, prop: string, ev: any) {
     ev.stopImmediatePropagation();
     if (isNaN(ev.target.textContent) || ev.target.textContent.charcode === 46) {
-      this.notStringErr = 'Numbers Only!';
+      this.notStringErr = 'Numbers Only';
       return;
     }
 

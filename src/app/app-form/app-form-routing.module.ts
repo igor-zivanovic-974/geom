@@ -8,7 +8,8 @@ import { AppFormComponent } from './app-form.component';
 const routes: Routes = [
   Shell.childRoutes([
     // { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'app-form/:moduleId/:applicationId', component: AppFormComponent, data: { title: marker('App Form') } },
+    // { path: 'app-form/:moduleId/:applicationId', component: AppFormComponent, data: { title: marker('App Form') } },
+    { path: 'app-form/:moduleName', component: AppFormComponent, data: { title: marker('App Form') } },
   ]),
 ];
 

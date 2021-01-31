@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Aplikacije } from '@app/@shared/enums/aplikacije';
 import { HomeService, ModuleItem } from '@app/home/home.service';
 
 @Component({
@@ -8,16 +9,13 @@ import { HomeService, ModuleItem } from '@app/home/home.service';
   styleUrls: ['./app-form.component.scss'],
 })
 export class AppFormComponent implements OnInit {
-  moduleId: number;
-  applicationId: number;
+  moduleName: string;
   appExist: boolean;
-  modules: ModuleItem[];
 
   constructor(private activatedRoute: ActivatedRoute, private homeService: HomeService) {
     this.activatedRoute.params.subscribe((params: any) => {
       // this.spinner.show();
-      this.moduleId = +params.moduleId;
-      this.applicationId = +params.applicationId;
+      this.moduleName = params.moduleName;
       this.appExist = this.checkAppExist();
     });
   }
@@ -25,7 +23,8 @@ export class AppFormComponent implements OnInit {
   ngOnInit(): void {}
 
   checkAppExist() {
-    this.modules = this.homeService.modules;
-    return !!this.modules.find((m) => m.id === this.moduleId && m.items.find((x) => x.id === this.applicationId));
+    // return !!(Object.keys(Aplikacije).includes(this.moduleName));
+    // return !!(Object.values(Aplikacije).includes(this.moduleName));
+    return this.moduleName in Aplikacije;
   }
 }

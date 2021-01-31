@@ -1,14 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-// import * as EventEmitter from 'events';
-
 @Component({
   selector: 'app-form-element-input',
   templateUrl: './form-element-input.component.html',
   styleUrls: ['./form-element-input.component.scss'],
 })
 export class FormElementInputComponent implements OnInit {
-  @Input() data: any; // string | number;
-  // @Input() controlName: string;
+  @Input() data: string | number;
   @Input() type: string;
   @Input() title: string;
   @Input() isRequired = true;
@@ -16,16 +13,12 @@ export class FormElementInputComponent implements OnInit {
   @Input() max?: number;
   @Input() maxLength? = 1000;
 
-  @Output() changedValue: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changedValue: EventEmitter<string | number> = new EventEmitter<string | number>();
   constructor() {}
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      // console.log(this.max + typeof (this.max));
-    }, 1000);
-  }
+  ngOnInit(): void {}
 
   onChange() {
-    this.changedValue.emit(this.data); // { controlName: this.controlName, value: this.data }
+    this.changedValue.emit(this.data);
   }
 }

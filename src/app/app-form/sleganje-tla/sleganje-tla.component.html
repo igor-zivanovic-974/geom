@@ -1,0 +1,119 @@
+<app-form-element-input
+  [data]="x.prilog"
+  [type]="'text'"
+  [title]="'prilog'"
+  [isRequired]="true"
+  [maxLength]="10"
+  (changedValue)="x.prilog = $event"
+></app-form-element-input>
+
+<app-form-element-input
+  [data]="x.objekat"
+  [type]="'text'"
+  [title]="'Objekat'"
+  [isRequired]="true"
+  [maxLength]="100"
+  (changedValue)="x.objekat = $event"
+></app-form-element-input>
+
+<app-form-element-input
+  [data]="x.napomena"
+  [type]="'text'"
+  [title]="'Napomena'"
+  [isRequired]="true"
+  [maxLength]="100"
+  (changedValue)="x.napomena = $event"
+></app-form-element-input>
+
+<hr />
+
+<div class="row">
+  <div class="col-12 col-lg-7">
+    <div class="row">
+      <div class="col-6">
+        <app-form-element-input
+          [data]="x.df"
+          [type]="'number'"
+          [title]="'df'"
+          [isRequired]="true"
+          (changedValue)="x.df = $event"
+        ></app-form-element-input>
+        <app-form-element-input
+          [data]="x.b"
+          [type]="'number'"
+          [title]="'b'"
+          [isRequired]="true"
+          (changedValue)="x.b = $event"
+        ></app-form-element-input>
+        <app-form-element-input
+          [data]="x.l"
+          [type]="'number'"
+          [title]="'l'"
+          [isRequired]="true"
+          (changedValue)="x.l = $event"
+        ></app-form-element-input>
+      </div>
+      <div class="col-6">
+        <app-form-element-radio
+          [items]="x.oblikTemelja.items"
+          [title]="x.oblikTemelja.title"
+          (changedValue)="onChangeOblikTemelja($event)"
+        ></app-form-element-radio>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="col-12 negative-left-margin">
+      <app-form-element-input
+        [data]="x.opterecenje"
+        [type]="'number'"
+        [title]="'opterecenje'"
+        [isRequired]="true"
+        (changedValue)="x.opterecenje = $event"
+      ></app-form-element-input>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-6">
+        <app-form-element-radio
+          [items]="x.rasterecenje.items"
+          [title]="x.rasterecenje.title"
+          [name]="'rasterecenje'"
+          (changedValue)="onChangeRasterecenje($event)"
+        ></app-form-element-radio>
+      </div>
+      <div class="col-6">
+        <label>{{ 'Tacke za proracun' | translate }}</label>
+        <div *ngFor="let t of x.tacke; let i = index">
+          <app-form-element-checkbox
+            [isChecked]="t.selected"
+            [title]="t.title"
+            [name]="'tacke' + i"
+            (changedValue)="t.value = $event"
+          ></app-form-element-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-5">
+    <app-form-element-table [tableRows]="x.tableRows"></app-form-element-table>
+  </div>
+</div>
+
+<hr />
+
+<div class="my-5">
+  <button type="submit" class="btn btn-primary" (click)="calculate()">{{ 'calculate' | translate }}</button
+  ><!-- [disabled]="form.invalid"-->
+  <button type="submit" class="btn btn-primary" (click)="save()">{{ 'save' | translate }}</button>
+  <button type="submit" class="btn btn-primary" (click)="import()">{{ 'import' | translate }}</button>
+</div>
+
+<!-- <hr>
+
+<div *ngFor="let prop of x | keyvalue">
+    {{prop.key}} - {{prop.value | json}}
+</div> -->

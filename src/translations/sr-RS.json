@@ -20,5 +20,15 @@
   "proracun-sipa": "Proracun sipa",
   "all": "Sve aplikacije",
 
-  "f1-opis": "Proracun dozvoljenog opterecenja tla"
+  "f1-opis": "Proracun dozvoljenog opterecenja tla",
+  "delete-title": "Potvrda brisanja",
+  "delete-question": "Da li ste sigurni da zelite da obrisete ovu stavku",
+  "cancel": "Otkazi",
+  "save": "Snimi",
+  "close": "Zatvori",
+  "delete": "Obrisi",
+  "Numbers Only": "Samo brojevi!",
+  "Remove": "Ukloni",
+  "calculate": "Izracunaj",
+  "import": "Uvezi"
 }

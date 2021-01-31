@@ -1,7 +1,10 @@
-<!-- <p>app-form works!</p>
-<h1>{{moduleId}} - {{applicationId}}</h1> -->
+<div *ngIf="appExist">
+  <app-application-one *ngIf="moduleName === 'konsleg'"></app-application-one>
+  <app-application-two *ngIf="moduleName === 'brinload'"></app-application-two>
+  <app-sleganje-tla *ngIf="moduleName === 'uecodeload'"></app-sleganje-tla>
+</div>
 
-<app-application-one *ngIf="moduleId === 1 && applicationId === 1"></app-application-one>
-<app-application-two *ngIf="moduleId === 1 && applicationId === 2"></app-application-two>
-
-<div *ngIf="!appExist">No such app... <a routerLink="/home">GO BACK</a></div>
+<div *ngIf="!appExist">
+  <h1>ERROR 404. No such app...</h1>
+  <div><a routerLink="/home">GO BACK</a></div>
+</div>

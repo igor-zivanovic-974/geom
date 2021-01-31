@@ -34,15 +34,10 @@ export class HomeComponent implements OnInit {
       });
     } else {
       this.selectedItems = this.homeService.getModuleItems(id);
-      console.log(this.selectedItems);
     }
   }
 
   goTo(s: string) {
-    const a = this.modules.find((m) => m.items.find((x) => x.name === s));
-    const moduleId = a.id;
-    const applicationId = a.items.find((t) => t.name === s).id;
-    console.log(moduleId, ' - ', applicationId);
-    this.router.navigate([`app-form/${moduleId}/${applicationId}`]);
+    this.router.navigate([`app-form/${s}`]);
   }
 }

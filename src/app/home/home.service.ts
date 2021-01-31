@@ -21,9 +21,9 @@ export class HomeService {
       id: 1,
       name: 'nosivost-tla',
       items: [
-        { id: 1, name: '1-1', image: 'assets/1-1.jpg' },
-        { id: 2, name: '1-2', image: 'assets/1-2.jpg' },
-        { id: 3, name: '1-3', image: 'assets/1-3.jpg' },
+        { id: 1, name: 'konsleg', image: 'assets/1-1.jpg' },
+        { id: 2, name: 'brinload', image: 'assets/1-2.jpg' },
+        { id: 3, name: 'uecodeload', image: 'assets/1-3.jpg' },
       ],
     },
     {
