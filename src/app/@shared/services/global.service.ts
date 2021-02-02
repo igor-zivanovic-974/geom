@@ -8,4 +8,8 @@ export class GlobalService {
   isMobileScreen$ = new BehaviorSubject<boolean>(false);
 
   constructor() {}
+
+  // getClientId {
+  //   return localStorage.get('clientId');
+  // }
 }

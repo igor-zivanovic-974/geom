@@ -8,6 +8,8 @@ export class FormElementInputComponent implements OnInit {
   @Input() data: string | number;
   @Input() type: string;
   @Input() title: string;
+  @Input() title2?: string;
+  @Input() unit?: string;
   @Input() isRequired = true;
   @Input() min?: number;
   @Input() max?: number;

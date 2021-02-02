@@ -1,8 +1,8 @@
 <form #f="ngForm" novalidate>
   <div *ngIf="type === 'text'; else displayNumber">
     <div class="form-group row">
-      <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ title | translate }}</label>
-      <div class="col-sm-10">
+      <label for="df" class="col-sm-3 col-form-label col-form-label-sm">{{ title | translate }}</label>
+      <div class="col-sm-9">
         <input
           type="text"
           class="form-control form-control-sm"
@@ -29,8 +29,10 @@
 
   <ng-template #displayNumber>
     <div class="form-group row">
-      <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ title | translate }}</label>
-      <div class="col-sm-10">
+      <label for="df" class="col-sm-3 col-form-label col-form-label-sm"
+        >{{ title | translate }} {{ title2 }} ({{ unit }})</label
+      >
+      <div class="col-sm-7">
         <input
           type="number"
           class="form-control form-control-sm"
@@ -45,6 +47,7 @@
           [required]="isRequired"
           autocomplete="off"
         />
+
         <small *ngIf="df.errors?.required && (df.dirty || df.touched)" class="text-danger" translate>
           {{ 'required-field' | translate }}
         </small>
@@ -57,10 +60,11 @@
         <!-- df.valid: {{df.valid}} -->
         <!-- min: {{min}} / {{df.errors?.min}} max: {{max}} / {{df.errors?.max}} {{(df.dirty || df.touched)}} -->
       </div>
+      <!-- <span class="ml-1">({{unit}})</span> -->
     </div>
   </ng-template>
 </form>
-<!-- {{data}} -->
+<!-- {{title}} -->
 
 <!-- <div class="form-group row">
     <label for="df" class="col-sm-2 col-form-label col-form-label-sm">{{ 'df' | translate }}</label>

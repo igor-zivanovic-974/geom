@@ -10,15 +10,16 @@ export class FormElementCheckboxComponent implements OnInit {
   @Input() title: string;
   @Input() name: string;
   // @Output() changedValue: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() changedValue: EventEmitter<string> = new EventEmitter<string>();
+  @Output() changedValue: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onChange() {
+    // debugger
     this.isChecked = !this.isChecked;
-    const val = this.isChecked === true ? 'D' : 'N';
-    this.changedValue.emit(val); // this.isChecked
+    // const val = this.isChecked === true ? 'D' : 'N';
+    this.changedValue.emit(this.isChecked); // val); //
   }
 }

@@ -12,7 +12,7 @@ import { GlobalService } from '../services/global.service';
 })
 export class FormElementTableComponent implements OnInit {
   @Input() tableRows: TableRow[]; //  = [{ d: 0, gama: 0, mv: 0 }];
-  @Output() changedValue: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changedValue: EventEmitter<TableRow[]> = new EventEmitter<TableRow[]>();
   notStringErr: string;
   isMobileScreen$: Observable<boolean>;
 

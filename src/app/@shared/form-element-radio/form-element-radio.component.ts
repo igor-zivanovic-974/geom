@@ -11,19 +11,10 @@ export class FormElementRadioComponent implements OnInit {
   @Input() title: string;
   @Input() name: string;
   @Output() changedValue: EventEmitter<any> = new EventEmitter<any>();
-  // data: any;
 
   constructor() {}
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      // console.log(this.items);
-      //   this.data = this.items[0].checked;
-      //   console.log(this.data);
-      //   const radiobtn = document.getElementById('ds1') as HTMLInputElement;
-      //   radiobtn.checked = true;
-    }, 300);
-  }
+  ngOnInit(): void {}
 
   onChange(val: any) {
     this.items.forEach((x: RadioItem) => {

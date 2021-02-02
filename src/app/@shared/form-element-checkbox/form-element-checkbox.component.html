@@ -1,4 +1,11 @@
 <div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="{{ name }}" [(ngModel)]="isChecked" (click)="onChange()" />
+  <input
+    type="checkbox"
+    class="custom-control-input"
+    id="{{ name }}"
+    name="{{ name }}"
+    (click)="onChange()"
+    [checked]="isChecked"
+  />
   <label class="custom-control-label" for="{{ name }}">{{ title | translate }}</label>
 </div>

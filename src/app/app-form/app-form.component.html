@@ -1,7 +1,7 @@
 <div *ngIf="appExist">
-  <app-application-one *ngIf="moduleName === 'konsleg'"></app-application-one>
-  <app-application-two *ngIf="moduleName === 'brinload'"></app-application-two>
-  <app-sleganje-tla *ngIf="moduleName === 'uecodeload'"></app-sleganje-tla>
+  <app-konsleg *ngIf="moduleName === 'konsleg'"></app-konsleg>
+  <app-brinload *ngIf="moduleName === 'brinload'"></app-brinload>
+  <!-- <app-uecodeload *ngIf="moduleName === 'uecodeload'"></app-uecodeload> -->
 </div>
 
 <div *ngIf="!appExist">

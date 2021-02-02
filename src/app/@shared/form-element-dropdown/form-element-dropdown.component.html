@@ -1,5 +1,9 @@
 <label>{{ title }}</label>
-<select class="custom-select" (change)="onChange($event)" required>
-  <!-- <option value="">Choose...</option> -->
-  <option *ngFor="let item of items" [value]="item.value" [selected]="item.selected">{{ item.name }}</option>
-</select>
+<div class="d-flex">
+  <select class="custom-select" (change)="onChange($event)" required>
+    <option *ngFor="let item of items" [value]="item.value" [selected]="item.selected" [disabled]="item.value === '0'">
+      {{ item.name }}
+    </option>
+  </select>
+  <div class="ml-3"><button class="btn btn-primary" (click)="onChange('0')">Reset</button></div>
+</div>

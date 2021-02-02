@@ -7,7 +7,7 @@ import { DropdownItem } from '../interfaces/dropdownItem.interface';
   styleUrls: ['./form-element-dropdown.component.scss'],
 })
 export class FormElementDropdownComponent implements OnInit {
-  @Input() items: DropdownItem[];
+  @Input() items: DropdownItem[] = [];
   @Input() title: string;
   @Output() changedValue: EventEmitter<string> = new EventEmitter<string>();
   data: string;
